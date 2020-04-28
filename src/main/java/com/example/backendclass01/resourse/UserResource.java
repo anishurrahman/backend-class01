@@ -11,37 +11,39 @@ import java.util.List;
 @RequestMapping("/api")
 public class UserResource {
 
-@Autowired
-private UserService userService;
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/user")
-    public User getUser(){
+    public User getUser() {
         return userService.getUser();
     }
 
     @PostMapping("/user")
-    public User saveUser(@RequestBody User user){
+    public User saveUser(@RequestBody User user) {
         return userService.saveUser(user);
 
     }
+
     @GetMapping("/allUsers")
-    public List<User> getAllUsers(){
-    return userService.getAllUsers();
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
-@GetMapping("/user/{userId}")
-    public User getUserById(@PathVariable("userId") int userId){
+
+    @GetMapping("/user/{userId}")
+    public User getUserById(@PathVariable("userId") int userId) {
         return userService.getUserById(userId);
-}
+    }
 //PUT
 
     @PutMapping("/user/{userId}")
-    public User updateUser(@PathVariable("userId") int userId, @RequestBody User user){
+    public User updateUser(@PathVariable("userId") int userId, @RequestBody User user) {
         return userService.updateUser(userId, user);
     }
 
 
     @DeleteMapping("/user")
-    public User deleteUser(@RequestParam(name="userId") int userId){
+    public User deleteUser(@RequestParam(name = "userId") int userId) {
         return userService.deleteUser(userId);
 
     }
